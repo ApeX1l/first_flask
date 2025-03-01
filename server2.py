@@ -262,5 +262,47 @@ def load_photo():
             file.write(f.read())
         return redirect('/load_photo')
 
+
+@app.route('/carousel')
+def carousel():
+    return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet"
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                            crossorigin="anonymous">
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+                            crossorigin="anonymous"></script>
+                            <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style_form.css')}" />
+                            <title>Пример формы</title>
+                          </head>
+                          <body>
+                          <div style="text-align: center;">
+                            <span><h1>Пейзажи планет</h1></span>
+                          </div>
+                          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img src="{url_for('static', filename='img/tree1.jpg')}" 
+                                        alt="здесь должна была быть картинка, но не нашлась">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{url_for('static', filename='img/tree2.jpg')}" 
+                                        alt="здесь должна была быть картинка, но не нашлась">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{url_for('static', filename='img/tree3.jpg')}" 
+                                        alt="здесь должна была быть картинка, но не нашлась">
+                                </div>
+                              </div>
+                          </div>
+                          </body>
+                        </html>'''
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
